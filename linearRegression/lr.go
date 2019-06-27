@@ -8,7 +8,7 @@ type LinearRegression struct {
 	Weights *mat64.Dense
 }
 
-func Out(x, w mat64.Matrix) mat64.Matrix {
+func Out(x, w mat64.Matrix) *mat64.Dense {
 	n, _ := x.Dims()
 	y := mat64.NewDense(n, 1, nil)
 	y.Mul(x, w)
