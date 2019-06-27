@@ -1,9 +1,9 @@
 package nn
 
 import (
-	"fmt"
-	"machineLearning/util"
+	matrix "machineLearning/util"
 	"math"
+	"math/rand"
 )
 
 type Layer interface {
@@ -42,16 +42,15 @@ func (l *Linear) Init() {
 	for i := 0; i < l.InSize; i++ {
 		weight := []float64{}
 		for j := 0; j < l.OutSize; j++ {
-			weight = append(weight, 1)
+			weight = append(weight, rand.NormFloat64())
 		}
 		weights = append(weights, weight)
 	}
 	bias := [][]float64{}
 	for i := 0; i < l.OutSize; i++ {
-		bias = append(bias, []float64{0.5})
+		bias = append(bias, []float64{rand.NormFloat64()})
 	}
 	//a := matrix.InitMatrix(weights)
-	fmt.Println(weights)
 	l.Weights = matrix.InitMatrix(weights)
 	l.Bias = matrix.InitMatrix(bias)
 }
