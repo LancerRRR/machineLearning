@@ -1,4 +1,4 @@
-package linearRegression
+package lr
 
 import (
 	"github.com/gonum/matrix/mat64"
